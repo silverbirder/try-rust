@@ -1,3 +1,6 @@
 import { greet, FizzBuzz } from "wasm-game-of-life";
 
-greet();
+const fb = FizzBuzz.new();
+fb.call();
+fb.increment();
+fb.call();
