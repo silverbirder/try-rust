@@ -1,14 +1,19 @@
-extern crate cfg_if;
-extern crate wasm_bindgen;
-extern crate web_sys;
+mod fizz_buzz;
 
-mod utils;
-
-use std::fmt;
 use wasm_bindgen::prelude::*;
-use web_sys::console;
+
+#[cfg(feature = "wee_alloc")]
+#[global_allocator]
+static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-pub fn main() {
-    println!("Hello, world!");
+extern {
+    fn alert(s: &str);
+}
+
+#[wasm_bindgen]
+pub fn greet() {
+    alert("Hello, wasm-game-of-life!");
+    let fb: fizz_buzz::FizzBuzz = fizz_buzz::FizzBuzz {counter: 0};
+    fb.call();
 }

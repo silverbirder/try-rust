@@ -1,3 +1,3 @@
-import { main } from "wasm-game-of-life";
+import { greet } from "wasm-game-of-life";
 
-main();
+greet();
