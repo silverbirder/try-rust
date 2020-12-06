@@ -1,3 +1,6 @@
+use wasm_bindgen::prelude::*;
+
+#[wasm_bindgen]
 pub struct FizzBuzz {
     pub counter: i32
 }
@@ -11,7 +14,10 @@ impl FizzBuzz {
         } else if self.counter % 3 == 0 {
             return "Buzz"
         } else {
-            return ""
+            return "Nothing"
         }
+    }
+    pub fn increment(&mut self) {
+        self.counter += 1 ;
     }
 }
